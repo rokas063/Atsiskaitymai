@@ -13,4 +13,4 @@ console.log(sentence1);
 // 2. hammer is on the table
 // 3. sun is in the sky
 // 4. apple is with my sister
-// 5. Papildyti masyvą žodžiais, ir sukurti dar 3 +-logiškus sakinius.
+// 5. Papildyti masyvą žodžiais, ir sukurti dar 3 +-logiškus sakinius..
