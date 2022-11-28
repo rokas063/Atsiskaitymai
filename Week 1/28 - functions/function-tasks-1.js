@@ -172,6 +172,7 @@ console.groupEnd();
 console.groupCollapsed('11. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento indeksus vienoje eilutėje: 0 1 2 3 ...');
 {
   // ...sprendimas ir spausdinimas
+  
   function allmassiveelementsinline(array) {
     let resultLine = '';
     let i = 0;

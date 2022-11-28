@@ -1,8 +1,8 @@
 
 let nouns = ['apple', 'sister', 'hammer', 'sun', 'table', 'sky', 'lake', 'hope', 'weekend', 'today', 'well', 'doing', 'reiks',];
-// indeksai:    0       1         2        3       4        5       6    
+// indeksai :    0       1         2        3       4        5       6    
 let helpers = ['in', 'with', 'on', 'my', 'is', 'a', 'the', ' ', 'how', 'was', 'your', 'are', 'you', '?',];
-// indeksai:    0       1     2      3     4    5     6     7  
+// indeksai :    0       1     2      3     4    5     6     7  
 
 // Užduotis: Sudarykite šiuos sakinius ir išsaugokite kitamuosiuose:
 //    sentence1, sentence2, ... , sentenceN;  N - natūralieji skaičiai.
@@ -29,3 +29,4 @@ console.log(sentence6);
 // 7. hope you are doing well
 let sentence7 = nouns[7] + helpers[7] + helpers[12] + helpers[7] + helpers[11] + helpers[7] + nouns[11] + helpers[7] + nouns[10];
 console.log(sentence7);
+
