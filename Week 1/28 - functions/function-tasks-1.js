@@ -135,24 +135,81 @@ console.groupCollapsed('9. Parašykite funkciją, kuri atspausdina kiekvieno mas
 // [2] => reikšmė
 {
   // ... sprendimas ir spausdinimas
+
+  function allindexandmassive(array) {
+    let i = 0;
+
+    while (i <= array.length - 1) {
+      console.log(`[${[i]}] => ${array[i]}`);
+      i++;
+    }
+  }
+
+  const numbers = [1, 2, 3, 4, 5];
+  console.log('All index and massive');
+  allindexandmassive(numbers);
+
 }
 console.groupEnd();
 
 console.groupCollapsed('10. Parašykite funkciją, kuri atspausdina masyvo elementus atbuline tvarka eilutėmis, iš galo.');
 {
   // ...sprendimas ir spausdinimas
+  function allelementsdown(array) {
+    let i = array.length - 1;
+    while (i >= 0) {
+      { console.log(array[i]); };
+      i--;
+    }
+  }
+  const numbers = [1, 2, 3, 4, 5];
+  console.log('All elements reverse down');
+  allelementsdown(numbers);
+
 }
 console.groupEnd();
 
 console.groupCollapsed('11. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento indeksus vienoje eilutėje: 0 1 2 3 ...');
 {
   // ...sprendimas ir spausdinimas
+  function allmassiveelementsinline(array) {
+    let resultLine = '';
+    let i = 0;
+    while (i < array.length) {
+      const isNotLast = i < array.length - 1;
+      resultLine += [i];
+      i++;
+      if (isNotLast) {
+        resultLine += ', ';
+      }
+    }
+    console.log(resultLine)
+  }
+  const numbers = [1, 2, 3, 4, 5];
+  console.log('All massive elements in one line');
+  allmassiveelementsinline(numbers);
 }
 console.groupEnd();
 
 console.groupCollapsed('12. Parašykite funkciją, kuri atspausdina kiekvieno masyvo elemento reikšmes vienoje eilutėje: -111 2 -9 48');
 {
   // ...sprendimas ir spausdinimas
+  function allmassiveelementsinline(array) {
+    let resultLine = '';
+    let i = 0;
+    while (i < array.length) {
+      const isNotLast = i < array.length - 1;
+      resultLine += array[i];
+      i++;
+      if (isNotLast) {
+        resultLine += ', ';
+      }
+    }
+    console.log(resultLine)
+  }
+  const numbers = [1, 2, 3, 4, 5];
+  console.log('All massive elements in one line');
+  allmassiveelementsinline(numbers);
 }
 console.groupEnd();
 
@@ -160,5 +217,21 @@ console.groupCollapsed('13. Parašykite funkciją, kuri atspausdina kiekvieno ma
 //  [0]=>17 [1]=>8 [2]=>88 ..
 {
   // ...sprendimas ir spausdinimas
+  function allindexandmassiveelementsinline(array) {
+    let resultLine = '';
+    let i = 0;
+    while (i < array.length) {
+      const isNotLast = i < array.length - 1;
+      resultLine += `[${[i]}] => ${array[i]}`;
+      i++;
+      if (isNotLast) {
+        resultLine += ', ';
+      }
+    }
+    console.log(resultLine)
+  }
+  const numbers = [1, 2, 3, 4, 5];
+  console.log('All massive index and elements in one line');
+  allindexandmassiveelementsinline(numbers);
 }
 console.groupEnd();
