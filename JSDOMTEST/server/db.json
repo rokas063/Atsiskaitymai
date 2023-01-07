@@ -1,14 +1,24 @@
 {
-    "todos": [
-      {
-        "title": "task1fsafga",
-        "done": false,
-        "id": "V2PJ79O"
-      },
-      {
-        "title": "task2",
-        "done": true,
-        "id": "D_dAVqP"
-      }
-    ]
-  }
+  "items": [
+    {
+      "id": "1",
+      "title": "Taco Chicken",
+      "price": 5.2
+    },
+    {
+      "id": "2",
+      "title": "Taco Beef",
+      "price": 4.9
+    },
+    {
+      "id": "3",
+      "title": "Taco cheese",
+      "price": 4.2
+    },
+    {
+      "id": "4",
+      "title": "Taco Vegetables",
+      "price": 3.9
+    }
+  ]
+}

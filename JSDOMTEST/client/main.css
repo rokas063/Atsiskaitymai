@@ -1,0 +1,12 @@
+.addtaco-form {
+    width: 300px;
+    margin: 0 auto 20px;
+}
+
+.taco-table__row .btn-success {
+    display: none;
+}
+
+.taco-table__row--editable .btn-success {
+    display: inline-block;
+}

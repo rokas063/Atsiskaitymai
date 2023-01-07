@@ -1,53 +1,65 @@
-import API from './api.js';
-import TodosTableComponent from './components/concrete/todos-table.component.js';
-import ContainerComponent from './components/wrapper/container-component.js';
+import ApiService from './api-service.js';
 import HeaderComponent from './components/concrete/header-component.js';
-import NewTodoComponent from './components/concrete/new-todo-component.js';
-import DoneAndUpdateComponent from './components/concrete/done-and-update-component.js';
-
-
+import tacoTableComponent from "./components/concrete/taco-table-component.js";
+import ContainerComponent from "./components/wrappers/container-component.js";
+import AddtacoFormComponent from "./components/concrete/taco-form-component.js";
 
 const rootHtmlElement = document.querySelector('#root');
+if (rootHtmlElement === null) throw new Error('Error: #root element  was not found in HTML file.');
 
-let todosTableComponent;
-let doneAndUpdateComponent;
-const onDeleteTodo = async ({ id }) => {
-  await API.deleteTodo(id);
-  const todos =  await API.getTodos();
-  todosTableComponent.renderTodos(todos);
+let TacoTableComponent;
+let addTacoFormComponent;
+
+const onDeletetaco = async ({ id, title }) => {
+    try {
+        await ApiService.deletetaco({ id, title });
+    } catch (error) {
+        alert(error);
+    } finally {
+        const tacoStore = await ApiService.gettacoStore();
+        TacoTableComponent.rendertacoStore(tacoStore);
+    }
 }
 
-const onCreateTodo =  async ({ title, done }) => {
-  await API.createTodo({ title, done });
-  const todos =  await API.getTodos();
-  todosTableComponent.renderTodos(todos);
+const onCreatetaco = async ({ title, price }) => {
+    try {
+        await ApiService.createtaco({ title, price });
+    } catch (error) {
+        alert(error);
+    } finally {
+        const tacoStore = await ApiService.gettacoStore();
+        TacoTableComponent.rendertacoStore(tacoStore);
+    }
 }
 
-
-const onUpdateTodo = async ({ id, props }) => {
-  await API.updateTodo({ id, props });
-  const todos =  await API.getTodos();
-  todosTableComponent.renderTodos(todos);
+const onUpdatetaco = async ({ id, props }) => {
+    try {
+        await ApiService.updatetaco({ id, props });
+    } catch (error) {
+        alert(error);
+    } finally {
+        const tacoStore = await ApiService.gettacoStore();
+        TacoTableComponent.rendertacoStore(tacoStore);
+    }
 }
 
-API.getTodos()
-  .then((todos) => {
-    todosTableComponent = new TodosTableComponent({ todos, onDeleteTodo, onUpdateTodo });
-    const newTodoComponent = new NewTodoComponent({
-      onSubmit: onCreateTodo
-    });
-
-    doneAndUpdateComponent = new DoneAndUpdateComponent();
+ApiService.gettacoStore().then( (tacoStore) => {
+    tacoTableComponent = new tacoTableComponent( {tacoStore, onDeletetaco, onUpdatetaco});
     const headerComponent = new HeaderComponent({
-      text: 'ToDo tasks',
-      className: 'm-4'
+        text: 'taco Store',
+        className: 'text-center my-4 fw-normal',
     });
-    const containerComponent = new ContainerComponent([
-      headerComponent.htmlElement,
-      newTodoComponent.htmlElement,
-      doneAndUpdateComponent.htmlElement,
-      todosTableComponent.htmlElement,
-    ]);
+    addTacoFormComponent = new AddtacoFormComponent( {onSubmit: onCreatetaco})
 
-    rootHtmlElement.append(containerComponent.htmlElement);
-});
+    const container = new ContainerComponent({
+        children: [
+            headerComponent.htmlElement,
+            addtacoFormComponent.htmlElement,
+            tacoTableComponent.htmlElement,
+        ],
+    });
+
+    rootHtmlElement.append(
+        container.htmlElement,
+    );
+})
