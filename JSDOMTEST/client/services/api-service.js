@@ -54,7 +54,6 @@ const ApiService = {
     },
 
     async updatetaco({ id, props }) {
-        //console.log(id, props);
         try {
             const response = await fetch(`${SERVER_ADDRESS}/${TACO_COLLECTION_NAME}/${id}`, {
                 method: 'PATCH',

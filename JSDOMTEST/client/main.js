@@ -1,4 +1,4 @@
-import ApiService from './api-service.js';
+import ApiService from './services/api-service.js';
 import HeaderComponent from './components/concrete/header-component.js';
 import tacoTableComponent from "./components/concrete/taco-table-component.js";
 import ContainerComponent from "./components/wrappers/container-component.js";
@@ -44,9 +44,9 @@ const onUpdatetaco = async ({ id, props }) => {
 }
 
 ApiService.gettacoStore().then( (tacoStore) => {
-    tacoTableComponent = new tacoTableComponent( {tacoStore, onDeletetaco, onUpdatetaco});
+    TacoTableComponent = new tacoTableComponent( {tacoStore, onDeletetaco, onUpdatetaco});
     const headerComponent = new HeaderComponent({
-        text: 'taco Store',
+        text: 'Taco Store',
         className: 'text-center my-4 fw-normal',
     });
     addTacoFormComponent = new AddtacoFormComponent( {onSubmit: onCreatetaco})
@@ -54,8 +54,8 @@ ApiService.gettacoStore().then( (tacoStore) => {
     const container = new ContainerComponent({
         children: [
             headerComponent.htmlElement,
-            addtacoFormComponent.htmlElement,
-            tacoTableComponent.htmlElement,
+            addTacoFormComponent.htmlElement,
+            TacoTableComponent.htmlElement,
         ],
     });
 

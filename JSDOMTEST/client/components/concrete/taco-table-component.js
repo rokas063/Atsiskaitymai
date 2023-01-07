@@ -21,7 +21,7 @@ class tacoTableComponent {
         this.onDeletetaco = onDeletetaco;
         this.onUpdatetaco = onUpdatetaco;
         this.tbodyHtmlElement = this.htmlElement.querySelector('tbody');
-        this.renderTacoStore(tacoStore);
+        this.rendertacoStore(tacoStore);
     }
 
     enableRowEditAction = ({
